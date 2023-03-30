@@ -7,7 +7,6 @@ body {
 	margin: 0 auto;
 	padding: 0 16px;
 }
-
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -15,7 +14,7 @@ body {
 }
 .navbar .left {
 	font-size: 32px;
-	font-weight: 700;
+	font-weight: bold;
 }
 .navbar .right {
 	width: 400px;
@@ -35,11 +34,6 @@ body {
 	width: 24px;
 	height: 24px;
 }
-.navbar .hamburger {
-	height: 50px;
-	width: 50px;
-	display: none;
-}
 
 .bar1,
 .bar2,
@@ -50,9 +44,18 @@ body {
 	margin: 3px;
 	border-radius: 10px;
 }
+
+.navbar .hamburger {
+	display: none;
+}
+
+.navbar .hamburger:hover {
+	cursor: pointer;
+}
+
 .mobileNav {
-	background-color: #fff;
 	width: 80px;
+	background-color: white;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -61,13 +64,17 @@ body {
 	position: fixed;
 	z-index: 2;
 	top: 0;
-	right: 0;
+	right: -160px;
 	padding: 16px;
+	transition: transform 0.3s;
+}
+.mobileNav img {
+	width: 24px;
+	height: 24px;
 }
 
-.mobileNav img {
-	height: 24px;
-	width: 24px;
+.openDrawer {
+	transform: translateX(-160px);
 }
 
 .mobileNav a {
@@ -75,53 +82,48 @@ body {
 	color: black;
 	margin: 16px 0;
 }
+.mobileNav a:hover {
+	text-decoration: underline;
+}
 
 .project-grid {
 	display: grid;
 	grid-template-areas:
 		"eth eth alphabet"
 		"eth eth traveler"
-		"cube astro traveler"
+		"astro cube traveler"
 		"cup insta insta"
 		"cup insta insta"
 		"foam foam dimensional"
 		"foam foam dimensional";
-	gap: 16px;
+	grid-gap: 16px;
 	width: 100%;
 }
 
 #eth {
 	grid-area: eth;
 }
-
 #alphabet {
 	grid-area: alphabet;
 }
-
-#cube {
-	grid-area: cube;
-}
-
-#astro {
-	grid-area: astro;
-}
-
 #traveler {
 	grid-area: traveler;
 }
-
+#astro {
+	grid-area: astro;
+}
+#cube {
+	grid-area: cube;
+}
 #cup {
 	grid-area: cup;
 }
-
 #insta {
 	grid-area: insta;
 }
-
 #foam {
 	grid-area: foam;
 }
-
 #dimensional {
 	grid-area: dimensional;
 }
@@ -133,8 +135,8 @@ body {
 
 .project img {
 	width: 100%;
-	height: 100%;
 	object-fit: cover;
+	height: 100%;
 }
 
 .project .overlay {
@@ -144,12 +146,12 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 0;
 	font-size: 36px;
-	font-weight: 700;
+	font-weight: bold;
 	letter-spacing: 2px;
 	opacity: 0;
 	transition: all 0.2s ease;
@@ -159,8 +161,9 @@ body {
 	opacity: 1;
 	cursor: pointer;
 }
+
 .overlay.white {
-	color: #fff;
+	color: white;
 }
 
 .footer {
@@ -177,7 +180,7 @@ body {
 		grid-template-areas:
 			"eth eth"
 			"alphabet traveler"
-			"cube astro"
+			"astro cube"
 			"insta insta"
 			"cup foam"
 			"dimensional dimensional";
@@ -189,14 +192,17 @@ body {
 		margin-top: 100px;
 	}
 	.navbar {
-		width: 100%;
 		padding: 16px 24px;
 		box-sizing: border-box;
 		position: fixed;
 		top: 0;
 		left: 0;
-		background-color: #fff;
 		z-index: 3;
+		background-color: white;
+		width: 100%;
+	}
+	.navbar .right {
+		display: none;
 	}
 	.navbar .hamburger {
 		display: flex;
@@ -204,12 +210,9 @@ body {
 		justify-content: center;
 		align-items: center;
 	}
-	.navbar .right {
-		display: none;
-	}
 	.footer {
-		padding: 32px;
 		font-size: 14px;
+		padding: 32px;
 	}
 	.project-grid {
 		grid-template-areas:
@@ -228,15 +231,15 @@ body {
 }
 
 .animateBar1 {
-	animation: flipBar1 1s;
+	animation: flipBar1 0.5s;
 	animation-fill-mode: forwards;
 }
 .animateBar2 {
-	animation: fadeBar2 1s;
+	animation: fadeBar2 0.5s;
 	animation-fill-mode: forwards;
 }
 .animateBar3 {
-	animation: flipBar3 1s;
+	animation: flipBar3 0.5s;
 	animation-fill-mode: forwards;
 }
 @keyframes flipBar1 {
